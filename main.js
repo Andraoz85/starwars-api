@@ -1,13 +1,13 @@
 async function getAllPlanets() {
   try {
     let allPlanets = [];
-    let nextPage = "https://swapi.dev/api/planets/";
+    let page = "https://swapi.dev/api/planets/";
 
-    while (nextPage) {
-      const response = await fetch(nextPage);
+    while (page) {
+      const response = await fetch(page);
       const data = await response.json();
       allPlanets = allPlanets.concat(data.results);
-      nextPage = data.next;
+      page = data.next;
     }
 
     displayPlanets(allPlanets);
@@ -23,14 +23,14 @@ function displayPlanets(planets) {
   planets.forEach((planet) => {
     const planetDiv = document.createElement("div");
     planetDiv.innerHTML = `
-            <span class="close-button">×</span>
+            <span class="close-button">X</span>
             <h2>${planet.name}</h2>
             <p>Population: ${planet.population}</p>
             <p>Climate: ${planet.climate}</p>
             <p>Terrain: ${planet.terrain}</p>
         `;
     container.appendChild(planetDiv);
-    
+
     const closeButton = planetDiv.querySelector(".close-button");
     closeButton.addEventListener("click", () => {
       container.removeChild(planetDiv);

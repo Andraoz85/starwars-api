@@ -3,7 +3,9 @@ body {
     background-color: #282c34;
     color: #fff;
 }
-
+.nav {
+    color: rgb(86, 86, 222);
+}
 .container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -15,4 +17,9 @@ body {
     padding: 20px;
     background-color: #3c3e44;
     border-radius: 8px;
+}
+
+.close-button {
+    background-color: red;
+    cursor: pointer;
 }
