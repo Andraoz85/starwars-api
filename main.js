@@ -23,12 +23,18 @@ function displayPlanets(planets) {
   planets.forEach((planet) => {
     const planetDiv = document.createElement("div");
     planetDiv.innerHTML = `
+            <span class="close-button">×</span>
             <h2>${planet.name}</h2>
             <p>Population: ${planet.population}</p>
             <p>Climate: ${planet.climate}</p>
             <p>Terrain: ${planet.terrain}</p>
         `;
     container.appendChild(planetDiv);
+    
+    const closeButton = planetDiv.querySelector(".close-button");
+    closeButton.addEventListener("click", () => {
+      container.removeChild(planetDiv);
+    });
   });
 }
 
